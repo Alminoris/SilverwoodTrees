@@ -7,6 +7,8 @@ import net.minecraft.registry.tag.BlockTags;
 
 import java.util.concurrent.CompletableFuture;
 
+import static net.alminoris.silverwoodtrees.util.helper.ModBlockSetsHelper.*;
+
 public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider
 {
     public ModBlockTagProvider(FabricDataOutput output, CompletableFuture<RegistryWrapper.WrapperLookup> registriesFuture)
