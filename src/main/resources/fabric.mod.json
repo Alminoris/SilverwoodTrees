@@ -1,0 +1,40 @@
+{
+	"schemaVersion": 1,
+	"id": "silverwoodtrees",
+	"version": "${version}",
+	"name": "Silverwood Trees",
+	"description": "New interesting mod about vanilla-like trees: walnut, silver maple, staghorn sumac and silverberry.",
+	"authors": [
+		"Almiris (Alminoris)"
+	],
+	"contact": {
+		"homepage": "",
+		"sources": ""
+	},
+	"license": "MIT",
+	"icon": "assets/silverwoodtrees/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"net.alminoris.silverwoodtrees.SilverwoodTrees"
+		],
+		"client": [
+			"net.alminoris.silverwoodtrees.SilverwoodTreesClient"
+		],
+		"fabric-datagen": [
+			"net.alminoris.silverwoodtrees.SilverwoodTreesDataGenerator"
+		]
+	},
+	"mixins": [
+		"silverwoodtrees.mixins.json"
+	],
+	"depends": {
+		"fabricloader": ">=0.16.14",
+		"minecraft": "~1.21.1",
+		"java": ">=21",
+		"fabric-api": "*"
+	},
+	"suggests": {
+		"another-mod": "*"
+	}
+}
