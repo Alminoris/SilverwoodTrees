@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/door_top_right_open",
+  "textures": {
+    "bottom": "silverwoodtrees:block/silverberry_door_bottom",
+    "top": "silverwoodtrees:block/silverberry_door_top"
+  }
+}

@@ -15,7 +15,7 @@ import static net.alminoris.silverwoodtrees.item.ModItems.*;
 public class ModBlockSetsHelper
 {
     //"platanus", "pink_lapacho"
-    public static final String[] WOOD_NAMES = new String[] { "walnut", "silver maple", "staghorn sumac", "silverberry" };
+    public static final String[] WOOD_NAMES = new String[] { "walnut", "silver_maple", "staghorn_sumac", "silverberry" };
 
     public static final Dictionary<String, Block> LEAVES = new Hashtable<>()
     {{

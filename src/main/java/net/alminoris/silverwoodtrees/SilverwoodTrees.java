@@ -5,6 +5,8 @@ import net.alminoris.silverwoodtrees.entity.ModBoats;
 import net.alminoris.silverwoodtrees.item.ModItemGroups;
 import net.alminoris.silverwoodtrees.item.ModItems;
 import net.alminoris.silverwoodtrees.world.gen.ModWorldGeneration;
+import net.alminoris.silverwoodtrees.world.tree.ModFoliagePlacerTypes;
+import net.alminoris.silverwoodtrees.world.tree.ModTrunkPlacerTypes;
 import net.fabricmc.api.ModInitializer;
 
 import net.fabricmc.fabric.api.registry.FlammableBlockRegistry;
@@ -46,6 +48,9 @@ public class SilverwoodTrees implements ModInitializer
 		ModBoats.registerBoats();
 
 		ModItemGroups.registerItemGroups();
+
+		ModFoliagePlacerTypes.register();
+		ModTrunkPlacerTypes.register();
 
 		ModWorldGeneration.generateModWorldGen();
 	}

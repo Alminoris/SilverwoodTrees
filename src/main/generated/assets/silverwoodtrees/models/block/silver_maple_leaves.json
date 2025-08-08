@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/leaves",
+  "textures": {
+    "all": "silverwoodtrees:block/silver_maple_leaves"
+  }
+}

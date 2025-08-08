@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "silverwoodtrees:walnut_planks_from_walnut_log"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_walnut_log": {
+      "conditions": {
+        "items": [
+          {
+            "items": "silverwoodtrees:walnut_log"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_walnut_log"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "silverwoodtrees:walnut_planks_from_walnut_log"
+    ]
+  }
+}

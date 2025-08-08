@@ -14,7 +14,10 @@ public class ModSaplingGenerators
 {
     public static final Dictionary<String, RegistryKey<ConfiguredFeature<?, ?>>> keys = new Hashtable<>()
     {{
-        //put("olive", ModConfiguredFeatures.OLIVE_KEY);
+        put("walnut", ModConfiguredFeatures.WALNUT_KEY);
+        put("silver_maple", ModConfiguredFeatures.SILVER_MAPLE_KEY);
+        put("staghorn_sumac", ModConfiguredFeatures.STAGHORN_SUMAC_KEY);
+        put("silverberry", ModConfiguredFeatures.SILVERBERRY_KEY);
     }};
 
     public static final Dictionary<String, SaplingGenerator> saplingGenerators = new Hashtable<>()

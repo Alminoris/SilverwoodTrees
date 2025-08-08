@@ -16,15 +16,33 @@ import java.util.List;
 
 public class ModPlacedFeatures
 {
-    public static final RegistryKey<PlacedFeature> OLIVE_PLACED_KEY = registerKey("olive_placed");
+    public static RegistryKey<PlacedFeature> WALNUT_PLACED_KEY = registerKey("walnut_placed");
+
+    public static RegistryKey<PlacedFeature> SILVER_MAPLE_PLACED_KEY = registerKey("silver_maple_placed");
+
+    public static RegistryKey<PlacedFeature> STAGHORN_SUMAC_PLACED_KEY = registerKey("staghorn_sumac_placed");
+
+    public static RegistryKey<PlacedFeature> SILVERBERRY_PLACED_KEY = registerKey("silverberry_placed");
 
     public static void bootstrap(Registerable<PlacedFeature> context)
     {
         var configuredFeatureRegistryEntryLookup = context.getRegistryLookup(RegistryKeys.CONFIGURED_FEATURE);
 
-        register(context, OLIVE_PLACED_KEY, configuredFeatureRegistryEntryLookup.getOrThrow(ModConfiguredFeatures.OLIVE_KEY),
+        register(context, WALNUT_PLACED_KEY, configuredFeatureRegistryEntryLookup.getOrThrow(ModConfiguredFeatures.WALNUT_KEY),
                 VegetationPlacedFeatures.treeModifiersWithWouldSurvive(PlacedFeatures.createCountExtraModifier(0, 0.05f, 1),
-                        ModBlockSetsHelper.WOODEN_SAPLINGS.get("olive")));
+                        ModBlockSetsHelper.WOODEN_SAPLINGS.get("walnut")));
+
+        register(context, SILVER_MAPLE_PLACED_KEY, configuredFeatureRegistryEntryLookup.getOrThrow(ModConfiguredFeatures.SILVER_MAPLE_KEY),
+                VegetationPlacedFeatures.treeModifiersWithWouldSurvive(PlacedFeatures.createCountExtraModifier(0, 0.05f, 1),
+                        ModBlockSetsHelper.WOODEN_SAPLINGS.get("silver_maple")));
+
+        register(context, STAGHORN_SUMAC_PLACED_KEY, configuredFeatureRegistryEntryLookup.getOrThrow(ModConfiguredFeatures.STAGHORN_SUMAC_KEY),
+                VegetationPlacedFeatures.treeModifiersWithWouldSurvive(PlacedFeatures.createCountExtraModifier(0, 0.05f, 1),
+                        ModBlockSetsHelper.WOODEN_SAPLINGS.get("staghorn_sumac")));
+
+        register(context, SILVERBERRY_PLACED_KEY, configuredFeatureRegistryEntryLookup.getOrThrow(ModConfiguredFeatures.SILVERBERRY_KEY),
+                VegetationPlacedFeatures.treeModifiersWithWouldSurvive(PlacedFeatures.createCountExtraModifier(0, 0.05f, 1),
+                        ModBlockSetsHelper.WOODEN_SAPLINGS.get("silverberry")));
     }
 
     private static List<PlacementModifier> mushroomModifiers(int chance, @Nullable PlacementModifier modifier)

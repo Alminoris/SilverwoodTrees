@@ -19,7 +19,7 @@ public class ModItemGroups
     public static final ItemGroup SILVERWOOD_TREES_TAB = Registry.register(Registries.ITEM_GROUP,
             Identifier.of(SilverwoodTrees.MOD_ID, "silverwoodtreestab"),
             FabricItemGroup.builder().displayName(Text.translatable("itemgroup.silverwoodtreestab"))
-                    .icon(() -> new ItemStack(Blocks.ACACIA_SAPLING)).entries((displayContext, entries) ->
+                    .icon(() -> new ItemStack(WOODEN_SAPLINGS.get("silverberry"))).entries((displayContext, entries) ->
                     {
                         for (String name : WOOD_NAMES)
                         {

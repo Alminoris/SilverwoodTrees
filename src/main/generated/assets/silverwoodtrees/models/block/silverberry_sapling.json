@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cross",
+  "textures": {
+    "cross": "silverwoodtrees:block/silverberry_sapling"
+  }
+}

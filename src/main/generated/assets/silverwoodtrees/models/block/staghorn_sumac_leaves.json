@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/leaves",
+  "textures": {
+    "all": "silverwoodtrees:block/staghorn_sumac_leaves"
+  }
+}
