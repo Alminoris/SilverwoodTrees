@@ -59,14 +59,17 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider
             addDrop(ModBlockSetsHelper.WOODEN_SAPLINGS.get(name));
         }
 
-        /*addDrop(ModBlockSetsHelper.LEAVES.get("olive"), leavesDrops(ModBlockSetsHelper.LEAVES.get("olive"),
-                ModBlockSetsHelper.WOODEN_SAPLINGS.get("olive"), 0.0025f));
+        addDrop(ModBlockSetsHelper.LEAVES.get("walnut"), leavesDrops(ModBlockSetsHelper.LEAVES.get("walnut"),
+                ModBlockSetsHelper.WOODEN_SAPLINGS.get("walnut"), 0.0025f));
 
-        addDrop(ModBlockSetsHelper.LEAVES.get("tamarisk"), leavesDrops(ModBlockSetsHelper.LEAVES.get("tamarisk"),
-                ModBlockSetsHelper.WOODEN_SAPLINGS.get("tamarisk"), 0.0025f));
+        addDrop(ModBlockSetsHelper.LEAVES.get("silver_maple"), leavesDrops(ModBlockSetsHelper.LEAVES.get("silver_maple"),
+                ModBlockSetsHelper.WOODEN_SAPLINGS.get("silver_maple"), 0.0025f));
 
-        addDrop(ModBlockSetsHelper.LEAVES.get("western_serviceberry"), leavesDrops(ModBlockSetsHelper.LEAVES.get("western_serviceberry"),
-                ModBlockSetsHelper.WOODEN_SAPLINGS.get("western_serviceberry"), 0.0025f));*/
+        addDrop(ModBlockSetsHelper.LEAVES.get("staghorn_sumac"), leavesDrops(ModBlockSetsHelper.LEAVES.get("staghorn_sumac"),
+                ModBlockSetsHelper.WOODEN_SAPLINGS.get("staghorn_sumac"), 0.0025f));
+
+        addDrop(ModBlockSetsHelper.LEAVES.get("silverberry"), leavesDrops(ModBlockSetsHelper.LEAVES.get("silverberry"),
+                ModBlockSetsHelper.WOODEN_SAPLINGS.get("silverberry"), 0.0025f));
     }
 
     public LootTable.Builder tinyPlantDrops(Block withShears)
