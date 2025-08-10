@@ -15,9 +15,8 @@ import static net.alminoris.silverwoodtrees.util.helper.ModBlockSetsHelper.*;
 
 public class ModItemGroups
 {
-    public static final ItemGroup SILVERWOOD_TREES_TAB = Registry.register(Registries.ITEM_GROUP,
-            Identifier.of(SilverwoodTrees.MOD_ID, "silverwoodtreestab"),
-            FabricItemGroup.builder().displayName(Text.translatable("itemgroup.silverwoodtreestab"))
+    public static final ItemGroup SILVERWOOD_TREES_TAB = FabricItemGroup.builder(new Identifier(SilverwoodTrees.MOD_ID, "silverwoodtreestab"))
+            .displayName(Text.translatable("itemgroup.silverwoodtreestab"))
                     .icon(() -> new ItemStack(WOODEN_SAPLINGS.get("silverberry"))).entries((displayContext, entries) ->
                     {
                         for (String name : WOOD_NAMES)
@@ -48,7 +47,7 @@ public class ModItemGroups
                             entries.add(WOODEN_BOATS.get(name));
                             entries.add(WOODEN_CHEST_BOATS.get(name));
                         }
-                    }).build());
+                    }).build();
 
     public static void registerItemGroups()
     {

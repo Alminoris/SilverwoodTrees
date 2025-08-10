@@ -30,6 +30,5 @@
     "recipes": [
       "minecraft:walnut_button_from_walnut_planks"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

@@ -30,6 +30,5 @@
     "recipes": [
       "minecraft:silver_maple_button_from_silver_maple_planks"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

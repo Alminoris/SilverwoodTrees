@@ -30,6 +30,5 @@
     "recipes": [
       "minecraft:staghorn_sumac_planks_from_staghorn_sumac_log"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

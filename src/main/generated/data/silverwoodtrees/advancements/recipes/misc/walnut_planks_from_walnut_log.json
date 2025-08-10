@@ -30,6 +30,5 @@
     "recipes": [
       "minecraft:walnut_planks_from_walnut_log"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

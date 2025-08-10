@@ -30,6 +30,5 @@
     "recipes": [
       "minecraft:silverberry_button_from_silverberry_planks"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }
