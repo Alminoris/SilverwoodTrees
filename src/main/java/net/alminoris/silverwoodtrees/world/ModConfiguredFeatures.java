@@ -15,10 +15,7 @@ import net.minecraft.world.gen.feature.*;
 import net.minecraft.world.gen.feature.size.TwoLayersFeatureSize;
 import net.minecraft.world.gen.foliage.*;
 import net.minecraft.world.gen.stateprovider.BlockStateProvider;
-import net.minecraft.world.gen.trunk.BendingTrunkPlacer;
-import net.minecraft.world.gen.trunk.CherryTrunkPlacer;
-import net.minecraft.world.gen.trunk.ForkingTrunkPlacer;
-import net.minecraft.world.gen.trunk.StraightTrunkPlacer;
+import net.minecraft.world.gen.trunk.*;
 
 public class ModConfiguredFeatures
 {
@@ -47,10 +44,10 @@ public class ModConfiguredFeatures
 
         register(context, SILVER_MAPLE_KEY, Feature.TREE, new TreeFeatureConfig.Builder(
                 BlockStateProvider.of(ModBlockSetsHelper.LOGS.get("silver_maple")),
-                new StraightTrunkPlacer(5, 1, 2), // Прямой ствол с небольшой вариацией
+                new StraightTrunkPlacer(5, 1, 1),
 
                 BlockStateProvider.of(ModBlockSetsHelper.LEAVES.get("silver_maple")),
-                new SilverMapleFoliagePlacer(ConstantIntProvider.create(2), ConstantIntProvider.create(2), 5),
+                new SilverMapleFoliagePlacer(ConstantIntProvider.create(2), ConstantIntProvider.create(3), 7),
 
                 new TwoLayersFeatureSize(2, 0, 2)
         ).build());
