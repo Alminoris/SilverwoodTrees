@@ -22,26 +22,35 @@ import net.minecraft.world.gen.feature.TreeFeatureConfig;
 import net.minecraft.world.gen.foliage.FoliagePlacer;
 import net.minecraft.world.gen.trunk.TrunkPlacer;
 import net.minecraft.world.gen.trunk.TrunkPlacerType;
+import net.minecraft.util.dynamic.Codecs;
 
 public class StaghornSumacTrunkPlacer extends TrunkPlacer
 {
-    private static final Codec<UniformIntProvider> BRANCH_START_OFFSET_FROM_TOP_CODEC = UniformIntProvider.CODEC
-            .codec()
-            .validate(
-                    branchStartOffsetFromTop -> branchStartOffsetFromTop.getMax() - branchStartOffsetFromTop.getMin() < 1
-                            ? DataResult.error(() -> "Need at least 2 blocks variation for the branch starts to fit both branches")
-                            : DataResult.success(branchStartOffsetFromTop)
-            );
+    public static <T extends IntProvider> Codec<T> createValidatingCodec(int min, int max, Codec<T> providerCodec) {
+        return Codecs.validate(providerCodec, (provider) -> {
+            if (provider.getMin() < min) {
+                return DataResult.error(() -> "Value provider too low: " + min + " [" + provider.getMin() + "-" + provider.getMax() + "]");
+            } else if (provider.getMax() > max) {
+                return DataResult.error(() -> "Value provider too high: " + max + " [" + provider.getMin() + "-" + provider.getMax() + "]");
+            } else if (provider.getMax() - provider.getMin() < 1) {
+                return DataResult.error(() -> "Need at least 2 blocks variation for the branch starts to fit both branches");
+            } else {
+                return DataResult.success(provider);
+            }
+        });
+    }
 
-    public static final MapCodec<StaghornSumacTrunkPlacer> CODEC = RecordCodecBuilder.mapCodec(
+    private static final Codec<UniformIntProvider> BRANCH_START_OFFSET_FROM_TOP_CODEC = createValidatingCodec(
+            -16, 0, UniformIntProvider.CODEC
+    );
+
+    public static final Codec<StaghornSumacTrunkPlacer> CODEC = RecordCodecBuilder.create(
             instance -> fillTrunkPlacerFields(instance)
                     .<IntProvider, IntProvider, UniformIntProvider, IntProvider>and(
                             instance.group(
                                     IntProvider.createValidatingCodec(1, 3).fieldOf("branch_count").forGetter(tp -> tp.branchCount),
                                     IntProvider.createValidatingCodec(2, 16).fieldOf("branch_horizontal_length").forGetter(tp -> tp.branchHorizontalLength),
-                                    IntProvider.createValidatingCodec(-16, 0, BRANCH_START_OFFSET_FROM_TOP_CODEC)
-                                            .fieldOf("branch_start_offset_from_top")
-                                            .forGetter(tp -> tp.branchStartOffsetFromTop),
+                                    BRANCH_START_OFFSET_FROM_TOP_CODEC.fieldOf("branch_start_offset_from_top").forGetter(tp -> tp.branchStartOffsetFromTop),
                                     IntProvider.createValidatingCodec(-16, 16).fieldOf("branch_end_offset_from_top").forGetter(tp -> tp.branchEndOffsetFromTop)
                             )
                     )

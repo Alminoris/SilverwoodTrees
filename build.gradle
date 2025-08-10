@@ -38,9 +38,9 @@ dependencies {
 	// Fabric API. This is technically optional, but you probably want it anyway.
 	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
 
-	modImplementation "com.terraformersmc.terraform-api:terraform-wood-api-v1:11.0.0"
+	modImplementation "com.terraformersmc.terraform-api:terraform-wood-api-v1:7.0.2"
 
-	include "com.terraformersmc.terraform-api:terraform-wood-api-v1:11.0.0"
+	include "com.terraformersmc.terraform-api:terraform-wood-api-v1:7.0.2"
 }
 
 processResources {
@@ -52,7 +52,7 @@ processResources {
 }
 
 tasks.withType(JavaCompile).configureEach {
-	it.options.release = 21
+	it.options.release = 17
 }
 
 java {
@@ -61,8 +61,8 @@ java {
 	// If you remove this line, sources will not be generated.
 	withSourcesJar()
 
-	sourceCompatibility = JavaVersion.VERSION_21
-	targetCompatibility = JavaVersion.VERSION_21
+	sourceCompatibility = JavaVersion.VERSION_17
+	targetCompatibility = JavaVersion.VERSION_17
 }
 
 jar {

@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "silverwoodtrees:walnut_sapling",
+    "silverwoodtrees:silver_maple_sapling",
+    "silverwoodtrees:staghorn_sumac_sapling",
+    "silverwoodtrees:silverberry_sapling"
+  ]
+}

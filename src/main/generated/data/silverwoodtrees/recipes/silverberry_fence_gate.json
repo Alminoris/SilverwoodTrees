@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "silverwoodtrees:silverberry_planks"
+    },
+    "/": {
+      "item": "minecraft:stick"
+    }
+  },
+  "pattern": [
+    "/#/",
+    "/#/"
+  ],
+  "result": {
+    "item": "silverwoodtrees:silverberry_fence_gate"
+  },
+  "show_notification": true
+}

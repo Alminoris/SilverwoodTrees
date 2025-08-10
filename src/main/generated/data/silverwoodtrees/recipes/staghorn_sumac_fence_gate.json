@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "silverwoodtrees:staghorn_sumac_planks"
+    },
+    "/": {
+      "item": "minecraft:stick"
+    }
+  },
+  "pattern": [
+    "/#/",
+    "/#/"
+  ],
+  "result": {
+    "item": "silverwoodtrees:staghorn_sumac_fence_gate"
+  },
+  "show_notification": true
+}

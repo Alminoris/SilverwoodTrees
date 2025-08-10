@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "#": {
+      "item": "silverwoodtrees:silverberry_planks"
+    },
+    "/": {
+      "item": "minecraft:stick"
+    }
+  },
+  "pattern": [
+    "#/#",
+    "#/#"
+  ],
+  "result": {
+    "count": 3,
+    "item": "silverwoodtrees:silverberry_fence"
+  },
+  "show_notification": true
+}

@@ -3,43 +3,17 @@ package net.alminoris.silverwoodtrees.datagen;
 import net.alminoris.silverwoodtrees.util.helper.ModBlockSetsHelper;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricBlockLootTableProvider;
-import net.minecraft.block.Block;
-import net.minecraft.enchantment.Enchantment;
-import net.minecraft.enchantment.Enchantments;
-import net.minecraft.item.Item;
-import net.minecraft.item.Items;
-import net.minecraft.loot.LootPool;
-import net.minecraft.loot.LootTable;
-import net.minecraft.loot.condition.BlockStatePropertyLootCondition;
-import net.minecraft.loot.condition.RandomChanceLootCondition;
-import net.minecraft.loot.condition.TableBonusLootCondition;
-import net.minecraft.loot.entry.ItemEntry;
-import net.minecraft.loot.entry.LeafEntry;
-import net.minecraft.loot.entry.LootPoolEntry;
-import net.minecraft.loot.function.ApplyBonusLootFunction;
-import net.minecraft.loot.function.SetCountLootFunction;
-import net.minecraft.loot.provider.number.ConstantLootNumberProvider;
-import net.minecraft.loot.provider.number.UniformLootNumberProvider;
-import net.minecraft.predicate.StatePredicate;
-import net.minecraft.registry.RegistryKeys;
-import net.minecraft.registry.RegistryWrapper;
-
-import java.util.concurrent.CompletableFuture;
-
-import static net.alminoris.silverwoodtrees.util.helper.ModBlockSetsHelper.*;
 
 public class ModLootTableProvider extends FabricBlockLootTableProvider
 {
-    public ModLootTableProvider(FabricDataOutput dataOutput, CompletableFuture<RegistryWrapper.WrapperLookup> registryLookup)
+    public ModLootTableProvider(FabricDataOutput dataOutput)
     {
-        super(dataOutput, registryLookup);
+        super(dataOutput);
     }
 
     @Override
     public void generate()
     {
-        RegistryWrapper.Impl<Enchantment> impl = this.registryLookup.getWrapperOrThrow(RegistryKeys.ENCHANTMENT);
-
         for (String name : ModBlockSetsHelper.WOOD_NAMES)
         {
             addDrop(ModBlockSetsHelper.LOGS.get(name));
@@ -70,41 +44,5 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider
 
         addDrop(ModBlockSetsHelper.LEAVES.get("silverberry"), leavesDrops(ModBlockSetsHelper.LEAVES.get("silverberry"),
                 ModBlockSetsHelper.WOODEN_SAPLINGS.get("silverberry"), 0.0025f));
-    }
-
-    public LootTable.Builder tinyPlantDrops(Block withShears)
-    {
-        RegistryWrapper.Impl<Enchantment> impl = this.registryLookup.getWrapperOrThrow(RegistryKeys.ENCHANTMENT);
-        return this.dropsWithShears(
-                withShears,
-                (LootPoolEntry.Builder<?>)this.applyExplosionDecay(
-                        withShears,
-                        ItemEntry.builder(Items.WHEAT_SEEDS)
-                                .conditionally(RandomChanceLootCondition.builder(0.025F))
-                                .apply(ApplyBonusLootFunction.uniformBonusCount(impl.getOrThrow(Enchantments.FORTUNE), 2))
-                )
-        );
-    }
-
-    private LootTable.Builder multipleOreDrops(Block drop, Item item, float minDrops, float maxDrops)
-    {
-        RegistryWrapper.Impl<Enchantment> impl = this.registryLookup.getWrapperOrThrow(RegistryKeys.ENCHANTMENT);
-        return this.dropsWithSilkTouch(drop, this.applyExplosionDecay(drop, ((LeafEntry.Builder<?>)
-                ItemEntry.builder(item).apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(minDrops, maxDrops))))
-                .apply(ApplyBonusLootFunction.oreDrops(impl.getOrThrow(Enchantments.FORTUNE)))));
-    }
-
-    private LootTable.Builder leavesItemDrops(Block leaves, Block sapling, Item item, float... saplingChance)
-    {
-        RegistryWrapper.Impl<Enchantment> impl = this.registryLookup.getWrapperOrThrow(RegistryKeys.ENCHANTMENT);
-        return this.leavesDrops(leaves, sapling, saplingChance)
-                .pool(LootPool.builder()
-                        .rolls(ConstantLootNumberProvider.create(1.0F))
-                        .conditionally(this.createWithoutShearsOrSilkTouchCondition())
-                        .with(
-                                ((LeafEntry.Builder)this.addSurvivesExplosionCondition(leaves, ItemEntry.builder(item)))
-                                        .conditionally(TableBonusLootCondition.builder(impl.getOrThrow(Enchantments.FORTUNE), 0.00625F, 0.008333334F, 0.025F, 0.05F, 0.06F))
-                        )
-                );
     }
 }

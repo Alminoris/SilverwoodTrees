@@ -1,5 +1,6 @@
 package net.alminoris.silverwoodtrees.mixin;
 
+import com.mojang.serialization.Codec;
 import com.mojang.serialization.MapCodec;
 import net.minecraft.world.gen.foliage.FoliagePlacer;
 import net.minecraft.world.gen.foliage.FoliagePlacerType;
@@ -10,7 +11,7 @@ import org.spongepowered.asm.mixin.gen.Invoker;
 public interface FoliagePlacerTypeInvoker
 {
     @Invoker("register")
-    static <P extends FoliagePlacer> FoliagePlacerType<P> callRegister(String id, MapCodec<P> codec) {
+    static <P extends FoliagePlacer> FoliagePlacerType<P> callRegister(String id, Codec<P> codec) {
         throw new IllegalStateException();
     }
 }

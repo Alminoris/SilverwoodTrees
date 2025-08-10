@@ -12,7 +12,6 @@ import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 
 import static net.alminoris.silverwoodtrees.util.helper.ModBlockSetsHelper.*;
-import static net.alminoris.silverwoodtrees.util.helper.ModBlockSetsHelper.*;
 
 public class ModItemGroups
 {

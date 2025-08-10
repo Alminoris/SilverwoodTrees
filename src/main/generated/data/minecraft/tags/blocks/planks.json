@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "silverwoodtrees:walnut_planks",
+    "silverwoodtrees:silver_maple_planks",
+    "silverwoodtrees:staghorn_sumac_planks",
+    "silverwoodtrees:silverberry_planks"
+  ]
+}

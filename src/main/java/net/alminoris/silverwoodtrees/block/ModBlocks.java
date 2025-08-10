@@ -1,11 +1,12 @@
 package net.alminoris.silverwoodtrees.block;
 
-import com.terraformersmc.terraform.sign.api.block.TerraformHangingSignBlock;
-import com.terraformersmc.terraform.sign.api.block.TerraformSignBlock;
-import com.terraformersmc.terraform.sign.api.block.TerraformWallHangingSignBlock;
-import com.terraformersmc.terraform.sign.api.block.TerraformWallSignBlock;
+import com.terraformersmc.terraform.sign.block.TerraformHangingSignBlock;
+import com.terraformersmc.terraform.sign.block.TerraformSignBlock;
+import com.terraformersmc.terraform.sign.block.TerraformWallHangingSignBlock;
+import com.terraformersmc.terraform.sign.block.TerraformWallSignBlock;
 import net.alminoris.silverwoodtrees.SilverwoodTrees;
 import net.minecraft.block.*;
+import net.minecraft.block.sapling.SaplingGenerator;
 import net.minecraft.data.family.BlockFamily;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
@@ -89,31 +90,31 @@ public class ModBlocks
     public static Block registerFenceGateBlock(String name)
     {
         return registerBlock(name+"_fence_gate",
-                new FenceGateBlock(WoodType.OAK, AbstractBlock.Settings.copy(Blocks.OAK_FENCE_GATE)));
+                new FenceGateBlock(AbstractBlock.Settings.copy(Blocks.OAK_FENCE_GATE), WoodType.OAK));
     }
 
     public static Block registerDoorBlock(String name)
     {
         return registerBlock(name+"_door",
-                new DoorBlock(BlockSetType.OAK, AbstractBlock.Settings.copy(Blocks.OAK_DOOR)));
+                new DoorBlock(AbstractBlock.Settings.copy(Blocks.OAK_DOOR), BlockSetType.OAK));
     }
 
     public static Block registerTrapdoorBlock(String name)
     {
         return registerBlock(name+"_trapdoor",
-                new TrapdoorBlock(BlockSetType.OAK, AbstractBlock.Settings.copy(Blocks.OAK_TRAPDOOR)));
+                new TrapdoorBlock(AbstractBlock.Settings.copy(Blocks.OAK_TRAPDOOR), BlockSetType.OAK));
     }
 
     public static Block registerButtonBlock(String name)
     {
         return registerBlock(name+"_button",
-                new ButtonBlock(BlockSetType.OAK, 30, AbstractBlock.Settings.copy(Blocks.OAK_BUTTON)));
+                new ButtonBlock(AbstractBlock.Settings.copy(Blocks.OAK_BUTTON), BlockSetType.OAK, 30, true));
     }
 
     public static Block registerPressurePlateBlock(String name)
     {
         return registerBlock(name+"_pressure_plate",
-                new PressurePlateBlock(BlockSetType.OAK, AbstractBlock.Settings.copy(Blocks.OAK_PRESSURE_PLATE)));
+                new PressurePlateBlock(PressurePlateBlock.ActivationRule.EVERYTHING, AbstractBlock.Settings.copy(Blocks.OAK_PRESSURE_PLATE), BlockSetType.OAK));
     }
 
     public static Block registerSaplingBlock(String name, SaplingGenerator saplingGenerator)
